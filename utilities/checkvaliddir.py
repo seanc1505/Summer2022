@@ -6,8 +6,9 @@ from tkinter import *
 from tkinter import filedialog
 
 
-def checkValidDirectory(dir, check_name, make_if_fail=True):
-    print("Checking for " + check_name + " at: "+dir)
+def checkValidDirectory(dir="", check_name="", make_if_fail=True):
+    if check_name != "":
+        print("Checking for " + check_name + " at: "+dir)
     if os.path.exists(dir):
         pass
     elif dir == "" or make_if_fail == False:

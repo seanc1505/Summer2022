@@ -33,6 +33,7 @@ class CsvFileSource():
         return data
 
     def importVideoCsv(self):
+        # Add a way to set the csv file name
         csv_name = filedialog.askopenfilename(title='Select csv file')
         self.source_video_path = os.path.dirname(csv_name)
         self.export_video_name = input("Enter the base name of the video: ")
