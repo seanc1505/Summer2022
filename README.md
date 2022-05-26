@@ -36,6 +36,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 ### Default Functions
 * Reset Defaults
 * Edit Defaults
+  * Check edits are valid
 * Use defaults
 
 #### What needs to be included in the Defaults JSON.
@@ -89,6 +90,7 @@ Associated Variables
 
 * Figure out how to add tasks boxes to the readme.
 * Add a table of contents
+* Add error handling and testing
 # Current Functionality
 
 Csv File Source is the main object class file now
