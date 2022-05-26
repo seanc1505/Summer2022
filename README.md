@@ -18,6 +18,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Export Video
 
 ### Gui Functions
+
 * Import and sort videos from a folder
   * Needs a defaults JSON which points to external dirs first
     * Shows a list of external dirs and folders within that might be right. (select one checkbox and it performs an import and sort)
@@ -33,13 +34,22 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
     * If only the file number, auto complete (eg 012145 --> GH012145 when imported)
     * If a cell is blank use the value in the cell directly above when manually created
 * Export videos to a specific location
-### Default Functions
-* Reset Defaults
-* Edit Defaults
-  * Check edits are valid
-* Use defaults
 
-#### What needs to be included in the Defaults JSON.
+### Default Functions
+
+* Init
+  * Imports from user_settings as user_data
+* ResetDefaults
+  * **Functioning**: Resets to default settings
+* EditDefaults
+  * **Functioning**: Updates but doesn't save current user settings
+  * **Future**: Check edits are valid settings
+
+* SaveDefaults
+  * **Functioning**: Saves current user settings
+
+#### What needs to be included in the Defaults JSON
+
 * Import folder
 * Export folder
 * CSV location
@@ -59,6 +69,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Algorthim file
 
 ## CSV File Fuctions
+
 * Import CSV
 * Create CSV
   * Manually
@@ -68,10 +79,12 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 ## Video
 
 Associated Variables
+
 * Name
 * Path
 * Date Created
 * Length
+
 ### Source videos
 
 * Import video
@@ -81,17 +94,15 @@ Associated Variables
 
 * Export Video
 
-
-
-
-# Next things to add
+## Next things to add
 
 * Add intelligent searching of file names within import and sort. It should look for 0124 in the file names and that should be enough rather than needing the whole thing. check/Search first for the whole thing though.
 
 * Figure out how to add tasks boxes to the readme.
 * Add a table of contents
 * Add error handling and testing
-# Current Functionality
+
+## Current Functionality
 
 Csv File Source is the main object class file now
 
