@@ -26,6 +26,7 @@ class SourceVideo(Video):
         self.video_date_created = findDateCreated(self.video_path)
 
     def importVideo(self, import_to=""):
+        # Add a way to check if the folder already exists
         if import_to == "":
             import_to = self.user_settings["import_to_path"]
         elif import_to[-4] == ".":
