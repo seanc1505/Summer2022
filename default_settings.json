@@ -1,9 +1,10 @@
 {
-    "import_path": "D:/DCIM/",
+    "import_from_path": "D:/DCIM/",
+    "import_to_path": "./test/",
     "export_path": "D:/DCIM/",
     "csv_path": "D:/DCIM/",
     "import_base_name": "GHXXXX_YY.mp4",
     "export_base_name": "YY_MM_DD_activity_person.mp4",
-    "date_format": "YY_MM_DD",
+    "date_format": "%Y_%m_%d",
     "csv_headings": "Video Name, Paddler, Start Time, Stop Time"
 }
