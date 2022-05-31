@@ -1,3 +1,31 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Functionality concepts](#functionality-concepts)
+  - [Layout of code](#layout-of-code)
+    - [Objects](#objects)
+    - [Gui Functions](#gui-functions)
+    - [Default Functions](#default-functions)
+      - [What needs to be included in the Defaults JSON](#what-needs-to-be-included-in-the-defaults-json)
+    - [Algorithim Functions](#algorithim-functions)
+      - [Associated Variables](#associated-variables)
+  - [CSV File Fuctions](#csv-file-fuctions)
+  - [Video](#video)
+    - [Source videos](#source-videos)
+    - [Export videos](#export-videos)
+  - [Next things to add](#next-things-to-add)
+  - [Current Functionality](#current-functionality)
+  - [Csv file source](#csv-file-source)
+    - [importVideoCsv](#importvideocsv)
+    - [exportVideoFromCsv](#exportvideofromcsv)
+    - [ProcessCsvData](#processcsvdata)
+  - [Supplementing function files](#supplementing-function-files)
+    - [Check valid Directory](#check-valid-directory)
+    - [Create Save Folder](#create-save-folder)
+    - [GoproRename](#goprorename)
+    - [ImportSort](#importsort)
+
+
 # Functionality concepts
 
 Detailing the desired structure and functionality of the project as a whole.
@@ -98,9 +126,10 @@ Associated Variables
 
 * Add intelligent searching of file names within import and sort. It should look for 0124 in the file names and that should be enough rather than needing the whole thing. check/Search first for the whole thing though.
 
-* Figure out how to add tasks boxes to the readme.
-* Add a table of contents
-* Add error handling and testing
+- [x] Figure out how to add tasks boxes to the readme.
+- [x] Add a table of contents
+- [ ] Update Readme
+- [ ] Add error handling and testing
 
 ## Current Functionality
 
