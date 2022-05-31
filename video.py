@@ -26,19 +26,19 @@ class SourceVideo(Video):
         self.video_date_created = findDateCreated(self.video_path)
 
     def importVideo(self, import_to=""):
-        # Add a way to check if the folder already exists
         if import_to == "":
             import_to = self.user_settings["import_to_path"]
         elif import_to[-4] == ".":
             import_to = os.path.dirname(import_to)
-        if import_to[-1] != "/":
-            import_to += "/"
-        import_to += self.video_date_created
-        import_to = checkValidDirectory(import_to)
-        import_to += ("/"+self.video_name)
-        shutil.move(self.video_path, import_to)
-        self.video_path = import_to
-        self.video_directory = os.path.dirname(self.video_path)
+        if self.video_date_created not in import_to:
+            import_to += "/" + self.video_date_created
+        if not os.path.exists(import_to):
+            import_to = checkValidDirectory(import_to)
+        import_to += "/" + self.video_name
+        if self.video_path != import_to:
+            shutil.move(self.video_path, import_to)
+            self.video_path = import_to
+            self.video_directory = os.path.dirname(import_to)
 
     def renameGoproVideo(self):
         if self.video_name[:2] != "GH":
