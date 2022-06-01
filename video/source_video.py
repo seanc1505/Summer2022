@@ -1,20 +1,11 @@
+from video import Video
+
 from utilities.checkvalidfile import checkValidFile
 from utilities.finddatecreated import findDateCreated
 from utilities.checkvaliddir import checkValidDirectory
 from utilities.findfilename import findFileName
-from defaults import Defaults
 import os
 import shutil
-
-
-class Video():
-    def __init__(self, default_settings) -> None:
-        self.user_settings = default_settings
-        self.video_name = ""
-        self.video_path = ""
-        self.video_date_created = ""
-        self.video_length = ""
-        self.video_directory = ""
 
 
 class SourceVideo(Video):
