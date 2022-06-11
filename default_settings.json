@@ -6,5 +6,5 @@
     "import_base_name": "GHXXXX_YY.mp4",
     "export_base_name": "YY_MM_DD_activity_person.mp4",
     "date_format": "%Y_%m_%d",
-    "csv_headings": "Video Name, Paddler, Start Time, Stop Time"
+    "csv_headings": "Video Name,Paddler,Start Time,Stop Time"
 }

@@ -121,7 +121,15 @@ Associated Variables
 ### Export videos
 
 * Export Video
+* Export Video dictionary
 
+
+Paddler dictionary{
+  Sean : (Video {
+    1 :{ : start : 00:00, stop: 02:22}
+  }
+  Sean 01 :
+  }
 ## Next things to add
 
 * Add intelligent searching of file names within import and sort. It should look for 0124 in the file names and that should be enough rather than needing the whole thing. check/Search first for the whole thing though.
