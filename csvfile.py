@@ -51,5 +51,22 @@ class CsvFile():
                         temp_row[column] = temp[:] + ".mp4"
 
             data.iloc[index] = temp_row
+
             prev_row = row
+
+        data = data.sort_values(['Paddler','Video Name'])
+        data = data.reset_index(drop=True)
+
+        data['Subclip Num'] = 0
+        for index,row in data.iterrows():
+            if index > 0:
+                if prev_row['Paddler'] == row['Paddler']:
+                    # print("same paddles")
+                    if prev_row['Video Name'] == row['Video Name']:
+                        # print("same video name")
+                        data.iloc[index,4] =  prev_row['Subclip Num']+1
+                        row['Subclip Num'] = prev_row['Subclip Num']+1
+            prev_row = row
+
+            
         return data
