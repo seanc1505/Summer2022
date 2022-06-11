@@ -1,4 +1,4 @@
-from video import Video
+from video.video import Video
 
 from utilities.checkvalidfile import checkValidFile
 from utilities.finddatecreated import findDateCreated
