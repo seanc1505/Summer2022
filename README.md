@@ -1,6 +1,12 @@
 # Table of Contents
 
 - [Table of Contents](#table-of-contents)
+- [This branch](#this-branch)
+  - [Statement of work](#statement-of-work)
+    - [Video](#video)
+    - [Source Video](#source-video)
+    - [Export Video](#export-video)
+  - [Added functionality](#added-functionality)
 - [Functionality concepts](#functionality-concepts)
   - [Layout of code](#layout-of-code)
     - [Objects](#objects)
@@ -10,7 +16,7 @@
     - [Algorithim Functions](#algorithim-functions)
       - [Associated Variables](#associated-variables)
   - [CSV File Fuctions](#csv-file-fuctions)
-  - [Video](#video)
+  - [Video](#video-1)
     - [Source videos](#source-videos)
     - [Export videos](#export-videos)
   - [Next things to add](#next-things-to-add)
@@ -24,6 +30,32 @@
     - [Create Save Folder](#create-save-folder)
     - [GoproRename](#goprorename)
     - [ImportSort](#importsort)
+
+# This branch
+
+## Statement of work
+3 classes created  
+Video
+SourceVideo(Video)
+ExportVideo(Video)
+### Video
+Definition of common vars
+
+### Source Video
+- [ ] Init -> pass a path and update source path vars
+- [ ] Import Videos -> Move files to specified directory in format (YY_MM_DD)
+- [ ] Rename files -> Renames go pro files from GHYYXXXX to GHXXXX_YY
+
+
+
+### Export Video
+- [x] Create dictionary from csv file
+- [ ] export clips
+- [ ] naming of files
+- [ ] updating of documentation
+
+## Added functionality
+
 
 
 # Functionality concepts
