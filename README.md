@@ -51,7 +51,8 @@ Definition of common vars
 ### Export Video
 - [x] Create dictionary from csv file
 - [ ] export clips
-- [ ] naming of files
+- [ ] naming of files and sorting of source and export directories
+- [ ] Rearrange the export to call subclip_dict and pass in csv there
 - [ ] updating of documentation
 
 ## Added functionality
