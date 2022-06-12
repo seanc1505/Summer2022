@@ -1,10 +1,13 @@
 {
     "import_from_path": "D:/DCIM/",
-    "import_to_path": "./test/",
-    "export_path": "D:/DCIM/",
-    "csv_path": "D:/DCIM/",
+    "import_to_path": "D:/00_Videos/2022_04_17",
+    "export_path": "D:/00_Videos/2022_04_17",
+    "csv_path": "D:/00_Videos/2022_04_17/2022_04_17.csv",
+    "source_path": "D:/00_Videos/2022_04_17",
     "import_base_name": "GHXXXX_YY.mp4",
-    "export_base_name": "YY_MM_DD_activity_person.mp4",
+    "export_name": "date_activity_person.mp4",
     "date_format": "%Y_%m_%d",
+    "date_created": "",
+    "activity": "",
     "csv_headings": "Video Name,Paddler,Start Time,Stop Time"
 }
