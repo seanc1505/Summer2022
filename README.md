@@ -51,8 +51,16 @@ Definition of common vars
 ### Export Video
 - [x] Create dictionary from csv file
 - [ ] export clips
-- [ ] naming of files and sorting of source and export directories
-- [ ] Rearrange the export to call subclip_dict and pass in csv there
+- [x] ALL files should move to save to and from user_settings
+- [ ] 
+- [x] naming of files and sorting of source and export directories
+- [x] Store those key data that gets passed in within user settings
+- [ ] Update readme with new format of video/
+- [ ] move all setting of vars to the UI section
+- [ ] draft a command line ui
+- [ ] check that all default settings actually still get checked
+  - [ ] valid files etc
+- [x] Rearrange the export to call subclip_dict and pass in csv there
 - [ ] updating of documentation
 
 ## Added functionality
