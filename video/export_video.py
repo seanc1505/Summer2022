@@ -1,3 +1,4 @@
+from concurrent.futures import process
 from video.video import Video
 from utilities.checkvaliddir import checkValidDirectory
 import moviepy
@@ -5,18 +6,17 @@ from moviepy.video.compositing.concatenate import concatenate_videoclips
 import os
 
 
-class ExportVideo(Video):
-    def __init__(self, path, default_settings) -> None:
-        super().__init__(default_settings)
-        self.video_path = path
+class ExportVideo():
+    def __init__(self, defaults,dataframe) -> None:
+        self.prepDictionary(dataframe)
+        self.exportVideo(defaults)
 
-    def exportVideo(self, name):
-        print("export video")
+    def exportVideo(self,defaults):
         for paddler in self.video_clips_dict:
             subclip_list = []
             for video in self.video_clips_dict[paddler]:
                 video_clip = moviepy.VideoFileClip(
-                            ( self.video_path+"/"+video))
+                            ( self.defaults.user_settings["source_path"]+"/"+video))
                 for subclip in self.video_clips_dict[paddler][video]:
                     temp_dict = self.video_clips_dict[paddler][video][subclip]
                     print(video)
@@ -26,7 +26,7 @@ class ExportVideo(Video):
                     subclip_list.append(current_subclip)
             
             final_clip = concatenate_videoclips(subclip_list)
-            video_name = self.video_path  +"/"+name +"_"+ paddler + self.video_date_created + ".mp4"
+            video_name = self.processExportName(defaults,paddler)
             final_clip.write_videofile(video_name)
     
     def prepDictionary(self,dataframe):       
@@ -36,24 +36,22 @@ class ExportVideo(Video):
         self.video_clips_dict = {}
         prev_row = ""
         for index,row in dataframe.iterrows():
-            
-            # if index > 4: 
-            #     break
             if index > 0:
                 if row['Subclip Num'] == 0:
                     video_name_dict[prev_row['Video Name']] = video_number_dict.copy()
                     video_number_dict = {}
-            
             clip_time_dict['Start Time'] = row['Start Time']
             clip_time_dict['Stop Time'] = row['Stop Time']
             video_number_dict[row['Subclip Num']]=clip_time_dict.copy()
-
             if index >0:
                 if prev_row['Paddler'] != row['Paddler']:
                     self.video_clips_dict[prev_row['Paddler']] = video_name_dict.copy()
                     video_name_dict = {}
-            
             prev_row=row
-
         video_name_dict[prev_row['Video Name']] = video_number_dict.copy()
         self.video_clips_dict[prev_row['Paddler']] = video_name_dict.copy()
+
+    def processExportName(self,defaults,paddler):
+        path = defaults.user_settings["export_path"]
+        file_name = defaults.user_settings["export_name"]
+        return path + "/" + file_name + "_" +paddler + ".mp4"
