@@ -137,3 +137,4 @@ dmypy.json
 test.*
 test.ipynb
 test.py
+.vscode/
