@@ -3,8 +3,11 @@
     "import_desitination_path": "./test/",
     "export_desitination_path": "D:/DCIM/",
     "csv_path": "D:/DCIM/",
+    "source_path": "D:/DCIM/",
     "import_base_name": "GHXXXX_YY.mp4",
     "export_base_name": "date_activity_person.mp4",
     "date_format": "%Y_%m_%d",
+    "date_created": "",
+    "activity": "",
     "csv_headings": "Video Name,Paddler,Start Time,Stop Time"
 }
