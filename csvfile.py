@@ -7,28 +7,24 @@ from utilities.checkvalidfile import checkValidFile
 
 
 class CsvFile():
-    def __init__(self, default_settings) -> None:
-        self.default_settings = default_settings
+    def __init__(self, defaults) -> None:
+        self.defaults = defaults
 
-    def importCsv(self, path=""):
-        if path == "":
-            self.csv_path = checkValidFile(
-                file=(self.default_settings["csv_path"]), check_name="Csv File")
-        else:
-            self.csv_path = checkValidFile(
-                file=path, check_name="Csv File")
-        self.raw_csv_data = pd.read_csv(self.csv_path)
+    def importCsv(self):
+        self.defaults.user_settings["csv_path"] = checkValidFile(
+            file=(self.defaults.user_settings["csv_path"]), check_name="Csv File")
+        self.raw_csv_data = pd.read_csv(self.defaults.user_settings["csv_path"])
         self.csv_data = self.processCsv(self.raw_csv_data)
 
     def createCsvManual(self):
-        self.csv_path = checkValidDirectory(
-            check_name="Location for Csv File", make_if_fail=False)
-        self.csv_path += ("/" + input("Name of csv file for edit:"))
-        if self.csv_path[-4:] != ".csv":
-            self.csv_path += ".csv"
-        with open(self.csv_path, 'w') as csvfile:
-            csvfile.write(self.default_settings["csv_headings"])
-        Popen(self.csv_path, shell=True)
+        self.defaults.user_settings["csv_path"] = checkValidDirectory(
+             make_if_fail=False)
+        self.defaults.user_settings["csv_path"] += ("/" + input("Name of csv file for edit:"))
+        if self.defaults.user_settings["csv_path"][-4:] != ".csv":
+            self.defaults.user_settings["csv_path"] += ".csv"
+        with open(self.defaults.user_settings["csv_path"], 'w') as csvfile:
+            csvfile.write(self.defaults.user_settings["csv_headings"])
+        Popen(self.defaults.user_settings["csv_path"], shell=True)
 
     def createCsvAlgorithim(self):
         print("createCsvAlgorithim")
