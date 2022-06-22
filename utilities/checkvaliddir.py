@@ -6,18 +6,15 @@ from tkinter import *
 from tkinter import filedialog
 
 
-def checkValidDirectory(dir="", check_name="", make_if_fail=True):
-    if check_name != "":
-        print("Checking for " + check_name + " at: "+dir)
+def checkValidDirectory(dir="", make_if_fail=True):
     if os.path.exists(dir):
         pass
     elif dir == "" or make_if_fail == False:
-        print("Could not find directory; " + dir + ", \r Please select it")
         root = Tk()
         dir = filedialog.askdirectory()
+        # Add error handling for if they don't pick a file
         root.destroy()
     else:
-        print("Could not find directory; " + dir + ", creating")
         os.mkdir(dir)
-    print("Directory selected: " + dir)
+        # Add error handling for if the path can't be resolved
     return dir

@@ -1,0 +1,68 @@
+from tkinter import filedialog
+import os
+from utilities.checkvaliddir import checkValidDirectory
+import pandas as pd
+from subprocess import Popen
+from utilities.checkvalidfile import checkValidFile
+
+
+class CsvFile():
+    def __init__(self, defaults) -> None:
+        self.defaults = defaults
+
+    def importCsv(self):
+        self.defaults.user_settings["csv_path"] = checkValidFile(
+            file=(self.defaults.user_settings["csv_path"]), check_name="Csv File")
+        self.raw_csv_data = pd.read_csv(self.defaults.user_settings["csv_path"])
+        self.csv_data = self.processCsv(self.raw_csv_data)
+
+    def createCsvManual(self):
+        self.defaults.user_settings["csv_path"] = checkValidDirectory(
+             make_if_fail=False)
+        self.defaults.user_settings["csv_path"] += ("/" + input("Name of csv file for edit:"))
+        if self.defaults.user_settings["csv_path"][-4:] != ".csv":
+            self.defaults.user_settings["csv_path"] += ".csv"
+        with open(self.defaults.user_settings["csv_path"], 'w') as csvfile:
+            csvfile.write(self.defaults.user_settings["csv_headings"])
+        Popen(self.defaults.user_settings["csv_path"], shell=True)
+
+    def createCsvAlgorithim(self):
+        print("createCsvAlgorithim")
+
+    def processCsv(self, data):
+        data.fillna("", inplace=True)
+        for index, row in data.iterrows():
+            temp_row = row
+            for column in range(len(row)):
+                if row[column] == "":
+                    if index > 0:
+                        temp_row[column] = prev_row[column]
+                elif column > 1 and isinstance(temp_row[column], str):
+                    time_list = temp_row[column].split(":", 1)
+                    time = (float(time_list[0])*60) + float(time_list[1])
+                    temp_row[column] = time
+                if column == 0:
+                    temp = str(row[column])
+                    if temp[-4:] != ".mp4":
+                        temp_row[column] = temp[:] + ".mp4"
+
+            data.iloc[index] = temp_row
+
+            prev_row = row
+
+        data = data.sort_values(['Paddler','Video Name'])
+        data = data.reset_index(drop=True)
+
+        data['Subclip Num'] = 0
+        for index,row in data.iterrows():
+            if index > 0:
+                if prev_row['Paddler'] == row['Paddler']:
+                    # print("same paddles")
+                    if prev_row['Video Name'] == row['Video Name']:
+                        # print("same video name")
+                        data.iloc[index,4] =  prev_row['Subclip Num']+1
+                        row['Subclip Num'] = prev_row['Subclip Num']+1
+            prev_row = row
+
+            
+        return data

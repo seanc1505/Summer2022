@@ -1,3 +1,72 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [This branch](#this-branch)
+  - [Statement of work](#statement-of-work)
+    - [Video](#video)
+    - [Source Video](#source-video)
+    - [Export Video](#export-video)
+  - [Added functionality](#added-functionality)
+- [Functionality concepts](#functionality-concepts)
+  - [Layout of code](#layout-of-code)
+    - [Objects](#objects)
+    - [Gui Functions](#gui-functions)
+    - [Default Functions](#default-functions)
+      - [What needs to be included in the Defaults JSON](#what-needs-to-be-included-in-the-defaults-json)
+    - [Algorithim Functions](#algorithim-functions)
+      - [Associated Variables](#associated-variables)
+  - [CSV File Fuctions](#csv-file-fuctions)
+  - [Video](#video-1)
+    - [Source videos](#source-videos)
+    - [Export videos](#export-videos)
+  - [Next things to add](#next-things-to-add)
+  - [Current Functionality](#current-functionality)
+  - [Csv file source](#csv-file-source)
+    - [importVideoCsv](#importvideocsv)
+    - [exportVideoFromCsv](#exportvideofromcsv)
+    - [ProcessCsvData](#processcsvdata)
+  - [Supplementing function files](#supplementing-function-files)
+    - [Check valid Directory](#check-valid-directory)
+    - [Create Save Folder](#create-save-folder)
+    - [GoproRename](#goprorename)
+    - [ImportSort](#importsort)
+
+# This branch
+
+## Statement of work
+3 classes created  
+Video
+SourceVideo(Video)
+ExportVideo(Video)
+### Video
+Definition of common vars
+
+### Source Video
+- [ ] Init -> pass a path and update source path vars
+- [ ] Import Videos -> Move files to specified directory in format (YY_MM_DD)
+- [ ] Rename files -> Renames go pro files from GHYYXXXX to GHXXXX_YY
+
+
+
+### Export Video
+- [x] Create dictionary from csv file
+- [ ] export clips
+- [x] ALL files should move to save to and from user_settings
+- [ ] 
+- [x] naming of files and sorting of source and export directories
+- [x] Store those key data that gets passed in within user settings
+- [ ] Update readme with new format of video/
+- [ ] move all setting of vars to the UI section
+- [ ] draft a command line ui
+- [ ] check that all default settings actually still get checked
+  - [ ] valid files etc
+- [x] Rearrange the export to call subclip_dict and pass in csv there
+- [ ] updating of documentation
+
+## Added functionality
+
+
+
 # Functionality concepts
 
 Detailing the desired structure and functionality of the project as a whole.
@@ -18,6 +87,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Export Video
 
 ### Gui Functions
+
 * Import and sort videos from a folder
   * Needs a defaults JSON which points to external dirs first
     * Shows a list of external dirs and folders within that might be right. (select one checkbox and it performs an import and sort)
@@ -33,12 +103,22 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
     * If only the file number, auto complete (eg 012145 --> GH012145 when imported)
     * If a cell is blank use the value in the cell directly above when manually created
 * Export videos to a specific location
-### Default Functions
-* Reset Defaults
-* Edit Defaults
-* Use defaults
 
-#### What needs to be included in the Defaults JSON.
+### Default Functions
+
+* Init
+  * Imports from user_settings as user_data
+* ResetDefaults
+  * **Functioning**: Resets to default settings
+* EditDefaults
+  * **Functioning**: Updates but doesn't save current user settings
+  * **Future**: Check edits are valid settings
+
+* SaveDefaults
+  * **Functioning**: Saves current user settings
+
+#### What needs to be included in the Defaults JSON
+
 * Import folder
 * Export folder
 * CSV location
@@ -58,6 +138,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Algorthim file
 
 ## CSV File Fuctions
+
 * Import CSV
 * Create CSV
   * Manually
@@ -67,10 +148,12 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 ## Video
 
 Associated Variables
+
 * Name
 * Path
 * Date Created
 * Length
+
 ### Source videos
 
 * Import video
@@ -79,17 +162,25 @@ Associated Variables
 ### Export videos
 
 * Export Video
+* Export Video dictionary
 
 
-
-
-# Next things to add
+Paddler dictionary{
+  Sean : (Video {
+    1 :{ : start : 00:00, stop: 02:22}
+  }
+  Sean 01 :
+  }
+## Next things to add
 
 * Add intelligent searching of file names within import and sort. It should look for 0124 in the file names and that should be enough rather than needing the whole thing. check/Search first for the whole thing though.
 
-* Figure out how to add tasks boxes to the readme.
-* Add a table of contents
-# Current Functionality
+- [x] Figure out how to add tasks boxes to the readme.
+- [x] Add a table of contents
+- [ ] Update Readme
+- [ ] Add error handling and testing
+
+## Current Functionality
 
 Csv File Source is the main object class file now
 
