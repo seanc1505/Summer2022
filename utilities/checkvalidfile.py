@@ -12,5 +12,6 @@ def checkValidFile(file=""):
     else:
         root = Tk()
         file = filedialog.askopenfilename()
+        # Add error handling for if they don't pick a file
         root.destroy()
     return file

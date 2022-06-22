@@ -12,7 +12,9 @@ def checkValidDirectory(dir="", make_if_fail=True):
     elif dir == "" or make_if_fail == False:
         root = Tk()
         dir = filedialog.askdirectory()
+        # Add error handling for if they don't pick a file
         root.destroy()
     else:
         os.mkdir(dir)
+        # Add error handling for if the path can't be resolved
     return dir
