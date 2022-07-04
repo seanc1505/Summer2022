@@ -12,7 +12,7 @@ class CsvFile():
 
     def importCsv(self):
         self.defaults.user_settings["csv_path"] = checkValidFile(
-            file=(self.defaults.user_settings["csv_path"]), check_name="Csv File")
+            file=(self.defaults.user_settings["csv_path"]))
         self.raw_csv_data = pd.read_csv(self.defaults.user_settings["csv_path"])
         self.csv_data = self.processCsv(self.raw_csv_data)
 
