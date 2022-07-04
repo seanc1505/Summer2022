@@ -1,5 +1,3 @@
-from video.video import Video
-
 from utilities.checkvaliddir import checkValidDirectory
 from utilities.createsavefolder import createSaveFolderPath
 from utilities.goprorename import goproRename
@@ -12,7 +10,7 @@ class SourceVideoDir():
     def __init__(self, defaults) -> None:
         self.importSortVideo(defaults)
 
-    def importSortVideo(defaults):
+    def importSortVideo(self, defaults):
         source_path = checkValidDirectory(defaults.user_settings["import_to_path"], False)
         file_list = os.listdir(source_path)
         for file_name in file_list:

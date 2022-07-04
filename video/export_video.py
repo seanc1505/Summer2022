@@ -1,5 +1,4 @@
-from concurrent.futures import process
-from video.video import Video
+from dataclasses import replace
 from utilities.checkvaliddir import checkValidDirectory
 import moviepy
 from moviepy.video.compositing.concatenate import concatenate_videoclips
@@ -16,11 +15,9 @@ class ExportVideo():
             subclip_list = []
             for video in self.video_clips_dict[paddler]:
                 video_clip = moviepy.VideoFileClip(
-                            ( self.defaults.user_settings["source_path"]+"/"+video))
+                            ( defaults.user_settings["source_path"]+"/"+video))
                 for subclip in self.video_clips_dict[paddler][video]:
                     temp_dict = self.video_clips_dict[paddler][video][subclip]
-                    print(video)
-                    print(temp_dict)
                     current_subclip = video_clip.subclip(
                                         temp_dict["Start Time"], temp_dict["Stop Time"])
                     subclip_list.append(current_subclip)
@@ -54,4 +51,7 @@ class ExportVideo():
     def processExportName(self,defaults,paddler):
         path = defaults.user_settings["export_path"]
         file_name = defaults.user_settings["export_name"]
+        strings = "hello"
+        file_name = file_name.replace("person",paddler)
+        # update this with correct date, maybe from settings file_name = file_name.replace("date",date)
         return path + "/" + file_name + "_" +paddler + ".mp4"
