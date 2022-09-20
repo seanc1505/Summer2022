@@ -1,13 +1,22 @@
-# Functionality concepts
+# Video Editor
 
-Detailing the desired structure and functionality of the project as a whole.
-Should be an a fully automated editing process navigated by an interactive online GUI.
-Interacts with machine learning progams hosted on the cloud. Computation should probably be done on the cloud too but may require upload which would be slow.
+* Design of a fully automated editing process navigated by an interactive online GUI.
+* Interacts with machine learning progams hosted on the cloud.
+* Computation should probably be done on the cloud too but may require upload which would be slow.
 
-## Layout of code
+## Repo Layout
+
+Current Active branches:
+
+* main
+  * Hosts most up to date running code
+* csv
+* video
+* defaults
+
+## Code Laout
+
 * Main.py will be main file that pulls everything together
-
-
 
 ### Objects
 
@@ -20,6 +29,8 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Source Video
 * Export Video
 
+
+**move this to webui**
 ### Gui Functions
 * Import and sort videos from a folder
   * Needs a defaults JSON which points to external dirs first
@@ -36,6 +47,8 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
     * If only the file number, auto complete (eg 012145 --> GH012145 when imported)
     * If a cell is blank use the value in the cell directly above when manually created
 * Export videos to a specific location
+
+**move this to defaults**
 ### Default Functions
 * Reset Defaults
 * Edit Defaults
@@ -49,6 +62,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Export file base name
 * Date format
 
+**move this to algorithim branch**
 ### Algorithim Functions
 
 * Train Algorithm
@@ -60,6 +74,8 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
 * Test Data
 * Algorthim file
 
+**move this to csv**
+
 ## CSV File Fuctions
 * Import CSV
 * Create CSV
@@ -67,6 +83,7 @@ Interacts with machine learning progams hosted on the cloud. Computation should 
   * Algorithm based
 * Process CSV
 
+**move this to video**
 ## Video
 
 Associated Variables
@@ -85,13 +102,16 @@ Associated Variables
 
 
 
-
+**review this and maybe edit it**
 # Next things to add
 
 * Add intelligent searching of file names within import and sort. It should look for 0124 in the file names and that should be enough rather than needing the whole thing. check/Search first for the whole thing though.
 
 * Figure out how to add tasks boxes to the readme.
 * Add a table of contents
+
+
+**update this and also move to relevant branches**
 # Current Functionality
 
 Csv File Source is the main object class file now
