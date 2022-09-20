@@ -13,16 +13,15 @@ class CsvFile():
     def importCsv(self, path=""):
         if path == "":
             self.csv_path = checkValidFile(
-                file=(self.default_settings["csv_path"]), check_name="Csv File")
+                file=(self.default_settings["csv_path"]))
         else:
             self.csv_path = checkValidFile(
-                file=path, check_name="Csv File")
+                file=path)
         self.raw_csv_data = pd.read_csv(self.csv_path)
         self.csv_data = self.processCsv(self.raw_csv_data)
 
     def createCsvManual(self):
-        self.csv_path = checkValidDirectory(
-            check_name="Location for Csv File", make_if_fail=False)
+        self.csv_path = checkValidDirectory(make_if_fail=False)
         self.csv_path += ("/" + input("Name of csv file for edit:"))
         if self.csv_path[-4:] != ".csv":
             self.csv_path += ".csv"
