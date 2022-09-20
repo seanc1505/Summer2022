@@ -5,6 +5,9 @@ Should be an a fully automated editing process navigated by an interactive onlin
 Interacts with machine learning progams hosted on the cloud. Computation should probably be done on the cloud too but may require upload which would be slow.
 
 ## Layout of code
+* Main.py will be main file that pulls everything together
+
+
 
 ### Objects
 
