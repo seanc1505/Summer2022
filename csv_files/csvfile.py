@@ -7,10 +7,13 @@ from utilities.checkvalidfile import checkValidFile
 
 
 class CsvFile():
+    """method of maintaining edit information in csv file, 
+    update to data object rather than csv and rename funcitons"""
     def __init__(self, default_settings) -> None:
         self.default_settings = default_settings
 
     def importCsv(self, path=""):
+        """Imports edit data from csv that is at path location or allows picking the file"""
         if path == "":
             self.csv_path = checkValidFile(
                 file=(self.default_settings["csv_path"]))
@@ -20,9 +23,11 @@ class CsvFile():
         self.raw_csv_data = pd.read_csv(self.csv_path)
         self.csv_data = self.processCsv(self.raw_csv_data)
 
-    def createCsvManual(self):
-        self.csv_path = checkValidDirectory(make_if_fail=False)
-        self.csv_path += ("/" + input("Name of csv file for edit:"))
+    def createCsvManual(self,csv_name,path = ""):
+        """Creates and opens a csv file at the specified path named csv_name"""
+        self.csv_path = checkValidDirectory(dir = path, make_if_fail=False)
+        self.csv_path += ("/" + csv_name)
+        
         if self.csv_path[-4:] != ".csv":
             self.csv_path += ".csv"
         with open(self.csv_path, 'w') as csvfile:
@@ -30,9 +35,17 @@ class CsvFile():
         Popen(self.csv_path, shell=True)
 
     def createCsvAlgorithim(self):
+        """**DEV**Creates a csv based on the AI generated in/out points"""
         print("createCsvAlgorithim")
 
     def processCsv(self, data):
+        """
+        Adjusts all empty cells
+        If column is empty it uses the value in row above
+        Converts start and end times floating point in seconds
+        Sorts the files based on paddler then video name
+        Adds subclip numbers to all rows for each paddler
+        """
         data.fillna("", inplace=True)
         for index, row in data.iterrows():
             temp_row = row
