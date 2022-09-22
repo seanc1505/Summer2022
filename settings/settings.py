@@ -6,22 +6,22 @@ class Settings():
     def __init__(self) -> None:
         self.importSettings()
 
-    def importSettings(self, user="user"):
+    def importSettings(self, default_settings=False):
         """Imports Settings from user_settings.json or default_settings.son
             Stores within default settings"""
-        if user != "user":
-            with open('default_settings.json') as json_file:
-                self.default_settings = json.load(json_file)
-                self.settings = self.default_settings
+        with open('default_settings.json') as json_file:
+            self.default_settings = json.load(json_file)
+        with open('user_settings.json') as json_file:
+            self.user_settings = json.load(json_file)
+        if default_settings:
+            self.settings = self.default_settings
         else:
-            with open('user_settings.json') as json_file:
-                self.user_settings = json.load(json_file)
-                self.settings = self.user_settings
+            self.settings = self.user_settings
         
 
     def resetSettings(self):
         """Sets user settings to default settings"""
-        self.ImportSettings(user="Settings")
+        self.importSettings(default_settings=True)
         with open('user_settings.json', 'w') as outfile:
             json.dump(self.default_settings, outfile)
 
