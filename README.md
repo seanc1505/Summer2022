@@ -20,26 +20,21 @@ Current Active branches:
 
 # Video Editor
 
-## Statement of work
-3 classes created  
-Video
-SourceVideo(Video)
-ExportVideo(Video)
-### Video
-Definition of common vars
+## Objects
+SourceVideo
+ExportVideo
 
 ### Source Video
+
 - [ ] Init -> pass a path and update source path vars
 - [ ] Import Videos -> Move files to specified directory in format (YY_MM_DD)
-- [ ] Rename files -> Renames go pro files from GHYYXXXX to GHXXXX_YY
-
-
+- [x] Rename files -> Renames go pro files from GHYYXXXX to GHXXXX_YY
 
 ### Export Video
+
 - [x] Create dictionary from csv file
-- [ ] export clips
+- [x] export clips
 - [x] ALL files should move to save to and from user_settings
-- [ ] 
 - [x] naming of files and sorting of source and export directories
 - [x] Store those key data that gets passed in within user settings
 - [ ] Update readme with new format of video/

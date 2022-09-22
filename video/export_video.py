@@ -26,7 +26,10 @@ class ExportVideo():
             video_name = self.processExportName(defaults,paddler)
             final_clip.write_videofile(video_name)
     
-    def prepDictionary(self,dataframe):       
+    def prepDictionary(self,dataframe):   
+        """Creates dictionary based on dataframe of start/stop times of clips
+            Formatof dict {<paddler> : {<Videoname> {<subclip num> :{  start : <time>, stop: <time>}
+        """    
         clip_time_dict = {}
         video_name_dict={}
         video_number_dict = {}
