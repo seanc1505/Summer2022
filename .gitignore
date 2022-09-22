@@ -135,4 +135,6 @@ dmypy.json
 # test folder
 /test
 test.*
+test.ipynb
 test.py
+.vscode/
