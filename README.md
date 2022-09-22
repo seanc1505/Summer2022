@@ -45,28 +45,6 @@ ExportVideo
 - [x] Rearrange the export to call subclip_dict and pass in csv there
 - [ ] updating of documentation
 
-## Added functionality
-
-
-
-# Functionality concepts
-
-Detailing the desired structure and functionality of the project as a whole.
-Should be an a fully automated editing process navigated by an interactive online GUI.
-Interacts with machine learning progams hosted on the cloud. Computation should probably be done on the cloud too but may require upload which would be slow.
-
-## Layout of code
-
-### Objects
-
-* GUI
-  * Algorithim
-  * CSV editing
-* Defaults
-* Algorithim
-* CSV file
-* Source Video
-* Export Video
 
 # Default Templates
 
