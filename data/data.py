@@ -3,10 +3,11 @@ import os
 from utilities.checkvaliddir import checkValidDirectory
 import pandas as pd
 from subprocess import Popen
+import subprocess
 from utilities.checkvalidfile import checkValidFile
 
 
-class CsvFile():
+class Data():
     """method of maintaining edit information in csv file, 
     update to data object rather than csv and rename funcitons"""
     def __init__(self, default_settings) -> None:
@@ -20,25 +21,27 @@ class CsvFile():
         else:
             self.csv_path = checkValidFile(
                 file=path)
-        self.raw_csv_data = pd.read_csv(self.csv_path)
-        self.csv_data = self.processCsv(self.raw_csv_data)
+        raw_csv_data = pd.read_csv(self.csv_path)
+        self.data = self.processVideoDF(raw_csv_data)
 
     def createCsvManual(self,csv_name,path = ""):
         """Creates and opens a csv file at the specified path named csv_name"""
-        self.csv_path = checkValidDirectory(dir = path, make_if_fail=False)
+        self.csv_path = checkValidDirectory(directory = path, make_if_fail=False)
         self.csv_path += ("/" + csv_name)
         
         if self.csv_path[-4:] != ".csv":
             self.csv_path += ".csv"
         with open(self.csv_path, 'w') as csvfile:
             csvfile.write(self.default_settings["csv_headings"])
-        Popen(self.csv_path, shell=True)
+        # Popen(self.csv_path, shell=True)
+        proc1 = subprocess.Popen(["C:/Program Files/Microsoft Office/root/Office16/EXCEL.EXE", self.csv_path]).wait()
+        self.importCsv(self.csv_path)
 
     def createCsvAlgorithim(self):
         """**DEV**Creates a csv based on the AI generated in/out points"""
         print("createCsvAlgorithim")
 
-    def processCsv(self, data):
+    def processVideoDF(self, data):
         """
         Adjusts all empty cells
         If column is empty it uses the value in row above

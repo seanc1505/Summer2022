@@ -4,7 +4,9 @@
 * Interacts with machine learning progams hosted on the cloud.
 * Computation should probably be done on the cloud too but may require upload which would be slow.
 
-## Repo Layout
+## Main
+
+### Repo Layout
 
 Current Active branches:
 
@@ -14,11 +16,11 @@ Current Active branches:
 * video
 * defaults
 
-## Code Laout
+### Code Laout
 
 * Main.py will be main file that pulls everything together
 
-### Objects
+#### Objects
 
 * GUI
   * Algorithim
@@ -29,20 +31,23 @@ Current Active branches:
 * Source Video
 * Export Video
 
-# CSV | Branch function
+## CSV | Branch function
 
-## Layout of code
+Renamed to Data
+  Main information stored in Data.data
+
+### Layout of code
 
 All files contained within csv_files/
 
 ### Objects
 
-* CsvFile
+* Data
   1. init
   2. importCsv
   3. createCsvManual
   4. createCsvAlgorithim
-  5. processCsv
+  5. processVideoDF
 
 #### Init(default_settings)
 
@@ -54,7 +59,7 @@ All files contained within csv_files/
 
 #### createCsvManual
 
-* Creates and opens a csv file at the specified path named csv_name
+* Creates and opens and imports a csv file at the specified path named csv_name
 
 #### createCsvAlgorithim
 
@@ -68,7 +73,7 @@ All files contained within csv_files/
 * Sorts the files based on paddler then video name
 * Adds subclip numbers to all rows for each paddler
 
-# Default Templates
+## Default Templates
 
 All files contained within defaults/
 
