@@ -1,12 +1,12 @@
-# Check if the file is valid, open dialog box if not
-# returns file path
-
 import os
 from tkinter import *
 from tkinter import filedialog
 
 
 def checkValidFile(file=""):
+    """Checks if directory is valid, else open file dialog.
+        Returns path to file
+    """
     if os.path.exists(file):
         pass
     else:
