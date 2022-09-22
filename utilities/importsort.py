@@ -7,9 +7,12 @@ from utilities.goprorename import goproRename
 
 
 def importSort(source_path="", save_location=""):
-    date_string_format = '%Y_%m_%d'  # folder name format
+    """
+    Imports all mp4 files from source to save location,
+    Deletes all lrv and thm file types
+    """
 
-    source_path = checkValidDirectory(source_path, "Source Path", False)
+    source_path = checkValidDirectory(source_path, False)
     file_list = os.listdir(source_path)
 
     for file_name in file_list:
