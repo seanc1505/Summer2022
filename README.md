@@ -29,6 +29,45 @@ Current Active branches:
 * Source Video
 * Export Video
 
+# CSV | Branch function
+
+## Layout of code
+
+All files contained within csv_files/
+
+### Objects
+
+* CsvFile
+  1. init
+  2. importCsv
+  3. createCsvManual
+  4. createCsvAlgorithim
+  5. processCsv
+
+#### Init(default_settings)
+
+* Imports default settings from json file
+
+#### ImportCsv(path)
+  
+* Imports edit data from csv that is at path location or allows picking the file
+
+#### createCsvManual
+
+* Creates and opens a csv file at the specified path named csv_name
+
+#### createCsvAlgorithim
+
+* **DEV**Creates a csv based on the AI generated in/out points
+
+#### processCsv
+
+* Adjusts all empty cells
+* If column is empty it uses the value in row above
+* Converts start and end times floating point in seconds
+* Sorts the files based on paddler then video name
+* Adds subclip numbers to all rows for each paddler
+
 # Default Templates
 
 All files contained within defaults/
