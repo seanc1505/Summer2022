@@ -4,7 +4,7 @@
 * Interacts with machine learning progams hosted on the cloud.
 * Computation should probably be done on the cloud too but may require upload which would be slow.
 
-## Main
+# Main
 
 ### Repo Layout
 
@@ -31,7 +31,7 @@ Current Active branches:
 * Source Video
 * Export Video
 
-## CSV | Branch function
+# Data | Branch function
 
 Renamed to Data
   Main information stored in Data.data
@@ -54,18 +54,19 @@ All files contained within csv_files/
 * Imports default settings from json file
 
 #### ImportCsv(path)
-  
+    def importFromCsv(self, path=""):
+
 * Imports edit data from csv that is at path location or allows picking the file
 
-#### createCsvManual
+#### createDataCsvManual
 
 * Creates and opens and imports a csv file at the specified path named csv_name
 
-#### createCsvAlgorithim
+#### createDataAlgorithim
 
 * **DEV**Creates a csv based on the AI generated in/out points
 
-#### processCsv
+#### processVideoDF
 
 * Adjusts all empty cells
 * If column is empty it uses the value in row above
@@ -73,7 +74,7 @@ All files contained within csv_files/
 * Sorts the files based on paddler then video name
 * Adds subclip numbers to all rows for each paddler
 
-## Default Templates
+# Default Templates
 
 All files contained within defaults/
 
