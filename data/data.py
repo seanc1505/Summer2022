@@ -13,7 +13,7 @@ class Data():
     def __init__(self, default_settings) -> None:
         self.default_settings = default_settings
 
-    def importCsv(self, path=""):
+    def importFromCsv(self, path=""):
         """Imports edit data from csv that is at path location or allows picking the file"""
         if path == "":
             self.csv_path = checkValidFile(
@@ -24,7 +24,7 @@ class Data():
         raw_csv_data = pd.read_csv(self.csv_path)
         self.data = self.processVideoDF(raw_csv_data)
 
-    def createCsvManual(self,csv_name,path = ""):
+    def createDataCsvManual(self,csv_name,path = ""):
         """Creates and opens a csv file at the specified path named csv_name"""
         self.csv_path = checkValidDirectory(directory = path, make_if_fail=False)
         self.csv_path += ("/" + csv_name)
@@ -35,10 +35,10 @@ class Data():
             csvfile.write(self.default_settings["csv_headings"])
         # Popen(self.csv_path, shell=True)
         proc1 = subprocess.Popen(["C:/Program Files/Microsoft Office/root/Office16/EXCEL.EXE", self.csv_path]).wait()
-        self.importCsv(self.csv_path)
+        self.importFromCsv(self.csv_path)
 
-    def createCsvAlgorithim(self):
-        """**DEV**Creates a csv based on the AI generated in/out points"""
+    def createDataAlgorithim(self):
+        """**DEV**Creates a DataFrame based on the AI generated in/out points, saves to csv"""
         print("createCsvAlgorithim")
 
     def processVideoDF(self, data):
