@@ -9,7 +9,6 @@
           - [Main dir](#main-dir)
           - [templates](#templates)
 
-
 ## GUI functionality
 
 - Import and sort videos from a folder
@@ -62,3 +61,4 @@ All work in user_interface/ folder
 2. about.html
 3. time_point_new.html
 4. home.html
+  
