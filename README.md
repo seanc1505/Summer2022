@@ -28,7 +28,6 @@
     - If a cell is blank use the value in the cell directly above when manually created
 - Export videos to a specific location
 
-
 ## WebUI
 
 All work in user_interface/ folder
